@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useLayoutEffect } from 'react'
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Button, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import MealInfo from '../components/MealInfo';
 import { MEALS } from '../data/dummy-data';
 
@@ -13,7 +13,8 @@ function MealDetailScreen({route}) {
 
     useLayoutEffect(()=>{
         navigation.setOptions({
-            title:mealDetail.title
+            title:mealDetail.title,
+            headerRight:()=><Button title='tap me' />
         });
 
     },[navigation])
