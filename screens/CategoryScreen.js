@@ -8,8 +8,8 @@ CATEGORIES
 function CategoryScreen({navigation}) {
 
 
-    const pressHandler = ()=>{
-       navigation.navigate("MealDetail")
+    const pressHandler = (id)=>{
+       navigation.navigate("MealDetail",{categoryId:id})
     }
   return (
       <FlatList 
@@ -19,7 +19,7 @@ function CategoryScreen({navigation}) {
            <CategoryGridTile 
            title={itemData.item.title} 
            color={itemData.item.color}
-           onPress={pressHandler}
+           onPress={()=>pressHandler(itemData.item.id)}
            />
        )}
        numColumns={2}
