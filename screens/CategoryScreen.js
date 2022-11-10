@@ -9,7 +9,7 @@ function CategoryScreen({navigation}) {
 
 
     const pressHandler = (id)=>{
-       navigation.navigate("MealDetails",{categoryId:id})
+       navigation.navigate("MealList",{categoryId:id})
     }
   return (
       <FlatList 
