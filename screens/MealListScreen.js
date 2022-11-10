@@ -14,8 +14,10 @@ function MealListScreen({route,navigation}) {
    
    
   useLayoutEffect(()=>{
+
     const mealTitle = CATEGORIES.find(category=>category.id===catID)
     navigation.setOptions({title: mealTitle.title})
+
   },[catID,navigation])
 
   return (
@@ -23,6 +25,7 @@ function MealListScreen({route,navigation}) {
         <FlatList  data={displayMeal} 
          renderItem={(itemData)=>(
             <MealItem
+             navigation={navigation}
              mealItem={itemData.item} 
              />
          )}

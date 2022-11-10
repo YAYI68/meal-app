@@ -1,15 +1,21 @@
 import React, { useLayoutEffect } from 'react'
-import { View } from 'react-native'
+import { Text, View } from 'react-native';
+import { MEALS } from '../data/dummy-data';
 
-function MealDetailScreen() {
+
+
+function MealDetailScreen({route, navigation}) {
+    
+    const mealID = route.params.mealId
+    
+    const mealDetail = MEALS.find((meal)=>meal.id === mealID)
 
     useLayoutEffect(()=>{
-        
 
     },[])
   return (
     <View>
-        <Text>Detail Page </Text>
+        <Text>{mealDetail.title}</Text>
     </View>
   )
 }

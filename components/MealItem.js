@@ -1,13 +1,19 @@
 import React from 'react'
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 
-function MealItem({mealItem}) {
+function MealItem({mealItem,navigation}) {
+
+    const onPressHandler = ()=>{
+        navigation.navigate("MealDetail",{mealId:mealItem.id}) 
+        console.log("Meal Detail")
+      }
+
   return (
     <View style={styles.mealItem}>
         <Pressable
-        //   onPress={}
+          onPress={onPressHandler}
           android_ripple={{color: '#ccc'}}
-        style={({pressed})=>pressed?styles.buttonPressed:null}
+          style={({pressed})=>pressed?styles.buttonPressed:null}
         >
             <View style={styles.innerContainer}>
             <View>
