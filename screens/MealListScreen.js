@@ -10,6 +10,8 @@ function MealListScreen({route,navigation}) {
     // const route = useRoute()
     const catID = route.params.categoryId
     const displayMeal = MEALS.filter((meal)=>meal.categoryIds.indexOf(catID) >=0)
+
+   
    
   useLayoutEffect(()=>{
     const mealTitle = CATEGORIES.find(category=>category.id===catID)
@@ -20,7 +22,9 @@ function MealListScreen({route,navigation}) {
      <View style={styles.container}>
         <FlatList  data={displayMeal} 
          renderItem={(itemData)=>(
-            <MealItem mealItem={itemData.item} />
+            <MealItem
+             mealItem={itemData.item} 
+             />
          )}
          keyExtractor={(item)=>item.id}
         />

@@ -40,7 +40,7 @@ export default function App() {
         // }}
         />
         <Stack.Screen 
-          name="MealDetails" 
+          name="MealDetail" 
           component={MealDetailScreen}
         />
       </Stack.Navigator>
