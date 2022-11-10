@@ -1,12 +1,12 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-function MealInfo({mealItem}) {
+function MealInfo({mealItem,style,textStyle}) {
   return (
-    <View style={styles.details}>
-    <Text style={styles.detailItem}>{mealItem.duration}m</Text>
-    <Text  style={styles.detailItem}>{mealItem.complexity}</Text>
-    <Text style={styles.detailItem}>{mealItem.affordability}</Text>
+    <View style={[styles.details,style]}>
+    <Text style={[styles.detailItem,textStyle]}>{mealItem.duration}m</Text>
+    <Text  style={[styles.detailItem,textStyle]}>{mealItem.complexity.toUpperCase()}</Text>
+    <Text style={[styles.detailItem,textStyle]}>{mealItem.affordability.toUpperCase()}</Text>
 </View>
   )
 }
@@ -23,5 +23,7 @@ export default MealInfo
     detailItem:{
         marginHorizontal:4,
         fontSize:12,
-    }
+        fontWeight:'bold',
+    },
+   
  })
