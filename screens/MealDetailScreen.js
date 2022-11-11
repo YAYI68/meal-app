@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useLayoutEffect } from 'react'
 import { Button, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import IconButton from '../components/IconButton';
 import MealInfo from '../components/MealInfo';
 import { MEALS } from '../data/dummy-data';
 
@@ -10,11 +11,15 @@ function MealDetailScreen({route}) {
     const navigation = useNavigation();
     const mealID = route.params.mealId
     const mealDetail = MEALS.find((meal)=>meal.id === mealID)
+    
+   const pressHandler = ()=>{
+    console.log('Press Handler');
+   }
 
     useLayoutEffect(()=>{
         navigation.setOptions({
             title:mealDetail.title,
-            headerRight:()=><Button title='tap me' />
+            headerRight:()=><IconButton icon="star" color={'white'} onPress={pressHandler} />
         });
 
     },[navigation])
@@ -33,16 +38,16 @@ function MealDetailScreen({route}) {
         <Text style={styles.subtitle}>Ingredients</Text>
         </View> 
         {mealDetail.ingredients.map((ingredient)=>(
-            <View  style={styles.listItem}>
-                <Text style={styles.itemText} key={ingredient}>{ingredient}</Text>
+            <View key={ingredient} style={styles.listItem}>
+                <Text style={styles.itemText} >{ingredient}</Text>
             </View>
         ))}
         <View style={styles.subtitleContainer}>
         <Text style={styles.subtitle}>Steps</Text>
         </View>
         {mealDetail.steps.map((step)=>(
-            <View style={styles.listItem}>
-                <Text style={styles.itemText} key={step}>{step}</Text>
+            <View  key={step}style={styles.listItem}>
+                <Text style={styles.itemText} >{step}</Text>
             </View>
         ))}
          </View>
