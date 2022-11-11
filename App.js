@@ -10,6 +10,7 @@ import MealDetailScreen from './screens/MealDetailScreen';
 import MealListScreen from './screens/MealListScreen';
 import IconButton from './components/IconButton';
 import FavouritesScreen from './screens/FavouritesScreen';
+import FavoriteContextProvider from './store/context/FavoriteContext';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -52,6 +53,7 @@ const DrawerComponent = ()=>{
 export default function App() {
   return (
      <>
+     <FavoriteContextProvider>
      <StatusBar style="light" />
      <NavigationContainer>
       <Stack.Navigator 
@@ -83,6 +85,7 @@ export default function App() {
         />
       </Stack.Navigator>
       </NavigationContainer> 
+     </FavoriteContextProvider>
      </>
     
   );
