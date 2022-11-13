@@ -2,6 +2,7 @@ import { useRoute } from '@react-navigation/native'
 import React, { useLayoutEffect } from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import MealItem from '../components/MealItem'
+import MealList from '../components/MealList'
 import { CATEGORIES, MEALS } from '../data/dummy-data'
 
 
@@ -21,24 +22,9 @@ function MealListScreen({route,navigation}) {
   },[catID,navigation])
 
   return (
-     <View style={styles.container}>
-        <FlatList  data={displayMeal} 
-         renderItem={(itemData)=>(
-            <MealItem
-             navigation={navigation}
-             mealItem={itemData.item} 
-             />
-         )}
-         keyExtractor={(item)=>item.id}
-        />
-     </View>
+     <MealList meals={displayMeal} />
   )
 }
 
 export default MealListScreen
 
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-    }
-})

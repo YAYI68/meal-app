@@ -12,13 +12,12 @@ function MealDetailScreen({route}) {
     const navigation = useNavigation();
     const mealID = route.params.mealId
     const mealDetail = MEALS.find((meal)=>meal.id === mealID)
-    const {ids,  addFavourite,removeFavourite,} = useFavoriteState();
-    console.log({ids})
+    const {ids,  addFavourite,removeFavourite} = useFavoriteState();
     const mealFavoriteId = ids.includes(mealID)
 
 
     const changeFavourite = ()=>{
-       if(mealDetail){
+       if(mealFavoriteId){
         removeFavourite(mealID)
        }else{
         addFavourite(mealID)

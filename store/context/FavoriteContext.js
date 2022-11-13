@@ -5,7 +5,7 @@ const FavoriteContextState = createContext();
 function FavoriteContextProvider({children}) {
     const [favouriteIds,setFavouriteIds] = useState([]);
     
-    const addFavourite=()=>{
+    const addFavourite=(id)=>{
         setFavouriteIds((currentIds)=>[...currentIds,id])
     }
     const removeFavourite=(id)=>{
@@ -25,6 +25,6 @@ function FavoriteContextProvider({children}) {
   )
 }
 
-export default FavoriteContext
+export default FavoriteContextProvider
 
 export const useFavoriteState = ()=> useContext(FavoriteContextState)
